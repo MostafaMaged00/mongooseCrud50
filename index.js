@@ -10,10 +10,9 @@ const starterFruits = require("./config/seed");
 const Fruit = require("./models/fruits");
 const fruitRoutes = require("./routes/fruitRoutes");
 
-
-
+//use middleware
+app.use(express.json());
 app.use("/api/fruits", fruitRoutes);
-
 
 //Home route
 app.get("/", (req, res) => {
