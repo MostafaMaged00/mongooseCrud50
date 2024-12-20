@@ -16,7 +16,8 @@ app.use("/api/fruits", fruitRoutes);
 
 //Home route
 app.get("/", (req, res) => {
-  res.send("<h1>Home Page</h1>");
+  //res.send("<h1>Home Page</h1>");
+  res.sendFile(__dirname + "/index.html");
 });
 
 //seed route to populate dtabase
