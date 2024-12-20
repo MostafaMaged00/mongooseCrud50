@@ -36,16 +36,25 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
 //update route
-router.put('/:id',async(req,res)=> {
-    try {
-      const updatedFruits = await Fruit.findByIdAndUpdate(req.params.id,req.body);
-      res.json(singleFruits);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
-
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedFruits = await Fruit.findByIdAndUpdate(
+      req.params.id,
+      req.body
+    );
+    res.json(updatedFruits);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedFruits = await Fruit.findByIdAndDelete(req.params.id);
+    res.json(deletedFruits);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 module.exports = router;
